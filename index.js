@@ -4,6 +4,7 @@ const bot = new Telegraf(botToken);
 const sharp = require('sharp');
 const axios = require('axios');
 const express = require('express');
+const app = express();
 
 app.use(express.json());
 app.use(bot.webhookCallback('/bot'))
