@@ -5,7 +5,6 @@ const sharp = require('sharp');
 const axios = require('axios');
 const express = require('express');
 const app = express();
-
 app.use(express.json());
 app.use(bot.webhookCallback('/bot'))
 
@@ -186,12 +185,13 @@ function apiUdemyC() {
 }
 
 
-apiUdemyC()
+
 
 app.listen(3000, () => {
     bot.telegram.setWebhook(`${process.env.RENDER_EXTERNAL_URL}/bot`)
         .then(() => {
             console.log('Webhook Set ✅ & Server is running on port 3000 💻');
             keepAppRunning();
+            apiUdemyC()
         });
 });
