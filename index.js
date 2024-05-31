@@ -2,6 +2,7 @@ const { Telegraf, Markup } = require('telegraf');
 const botToken = process.env.token;
 const bot = new Telegraf(botToken);
 const sharp = require('sharp');
+const https = require('https');
 const axios = require('axios');
 const express = require('express');
 const app = express();
@@ -115,7 +116,8 @@ function apiUdemyC() {
                 const count = data.count;
                 const results = data.results[0];
                 if (results.rating != "0E-7") {
-                    retanow = results.rating.total.toFixed(2);
+                    var fixtonum =parseFloat( results.rating);
+                    retanow=fixtonum.toFixed(2);
                 } else {
                     retanow = "0"
                 }
