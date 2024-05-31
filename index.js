@@ -75,7 +75,7 @@ async function downloadImage(url) {
     return Buffer.from(response.data, 'binary');
 }
 
-async function blurImage(buffer, blurAmount = 12) {
+async function blurImage(buffer, blurAmount = 15) {
     return await sharp(buffer)
         .blur(blurAmount)
         .toBuffer();
